@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/campustore.iml" filepath="$PROJECT_DIR$/campustore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/campustore_main.iml" filepath="$PROJECT_DIR$/.idea/modules/campustore_main.iml" group="campustore" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/campustore_test.iml" filepath="$PROJECT_DIR$/.idea/modules/campustore_test.iml" group="campustore" />
+    </modules>
+  </component>
+</project>

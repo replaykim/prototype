@@ -12,7 +12,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String hello() {
-        System.out.println("hello");
+        System.out.println("hello123");
         return "index";
     }
 }

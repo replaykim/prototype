@@ -30,12 +30,16 @@ repositories {
 	mavenCentral()
 }
 
+// classes need to be reloaded.
 idea {
 	module {
 		inheritOutputDirs = false
 		outputDir = file("$buildDir/classes/main/")
 	}
 }
+
+// resources need to be preprocessed and copied into build dir.
+processResources.finalizedBy 'gulp_preprocess'
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
@@ -45,4 +49,3 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-processResources.finalizedBy 'gulp_preprocess'

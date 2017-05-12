@@ -8,7 +8,11 @@ import del from 'del';
 import chalk from 'chalk';
 
 const clean ='clean';
-const clean_dir_pattern = './build/resources/**/*.*';
+const clean_dir_pattern = [
+    './build/resources/**/*.js.map',
+    './build/resources/**/*.css.map',
+    './build/resources/**/*.scss'
+];
 gulp.task(clean, () => {
     return del.sync(clean_dir_pattern);
 });

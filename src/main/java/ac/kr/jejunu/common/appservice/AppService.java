@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class AppService {
     @Autowired
-    AppDao appDao;
+    private AppDao appDao;
 
     public List<App> list(){
         return appDao.findAll();

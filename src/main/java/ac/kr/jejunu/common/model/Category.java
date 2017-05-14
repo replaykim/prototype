@@ -16,6 +16,6 @@ import javax.persistence.Id;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int category_no; //식별자
-    String category_name; //카테고리 이름
+    private Integer category_no; //식별자
+    private String category_name; //카테고리 이름
 }

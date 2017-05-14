@@ -9,4 +9,4 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface AppDao extends JpaRepository<App, Integer> {}
+public interface AppDao extends JpaRepository<App, Long> {}

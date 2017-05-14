@@ -16,7 +16,7 @@ import java.util.List;
 @Controller
 public class HomeController {
     @Autowired
-    AppService appService;
+    private AppService appService;
 
     @RequestMapping("/")
     public String hello(ModelMap modelMap) {

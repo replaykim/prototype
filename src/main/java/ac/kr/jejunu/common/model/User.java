@@ -15,8 +15,8 @@ import javax.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int user_no; // 회원 번호
-    String email; // 이메일
-    String name; // 이름
-    String type; // 회원 유형
+    private Long user_no; // 회원 번호
+    private String email; // 이메일
+    private String name; // 이름
+    private String type; // 회원 유형
 }

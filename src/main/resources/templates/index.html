@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport"
@@ -9,9 +9,16 @@
     <link rel="stylesheet" href="/stylesheets/a.css" />
 </head>
 <body>
-    <div>
-        <h1>1</h1>
+<div>
+    <h1>1</h1>
+    <div class="ContentContainer center_align">
+        <div data-th-each="app : ${applist}" class="content">
+            <div data-th-text="${app.name}"></div>
+            <div data-th-text="${app.user.email}"></div>
+            <div data-th-text="${app.category.category_name}"></div>
+        </div>
     </div>
-    <script src="/javascripts/a.js"></script>
+</div>
+<script src="/javascripts/a.js"></script>
 </body>
 </html>

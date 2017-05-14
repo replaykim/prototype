@@ -13,18 +13,18 @@ import javax.persistence.*;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int comment_no;// 식별자
+    private Long comment_no;// 식별자
 
     @ManyToOne
     @JoinColumn(name = "app_no", referencedColumnName = "app_no", nullable = false)
-    App app; // 앱에 대한 외래키 참조 설정
+    private App app; // 앱에 대한 외래키 참조 설정
 
 
     @ManyToOne
     @JoinColumn(name = "writer_no", referencedColumnName = "user_no")
     private User user; // 댓글 작성자에 대한 참조
 
-    String title;// 제목
-    String content; // 내용
-    int star;// 별점 평균
+    private String title;// 제목
+    private String content; // 내용
+    private Integer star;// 별점 평균
 }

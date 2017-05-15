@@ -19,4 +19,5 @@ public class User {
     private String email; // 이메일
     private String name; // 이름
     private String type; // 회원 유형
+    private String password; //비밀번호
 }

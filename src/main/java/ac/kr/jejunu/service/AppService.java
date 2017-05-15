@@ -1,10 +1,13 @@
-package ac.kr.jejunu.common.appservice;
+package ac.kr.jejunu.service;
 
-import ac.kr.jejunu.common.dao.AppDao;
-import ac.kr.jejunu.common.model.App;
+import ac.kr.jejunu.dao.AppDao;
+import ac.kr.jejunu.common.entity.App;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.List;
 
 /**

@@ -1,6 +1,6 @@
-package ac.kr.jejunu.common.dao;
+package ac.kr.jejunu.dao;
 
-import ac.kr.jejunu.common.model.App;
+import ac.kr.jejunu.common.entity.App;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

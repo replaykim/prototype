@@ -14,13 +14,13 @@ import java.io.Serializable;
 @Entity
 @Data
 @Table(name = "student_info")
-public class Student implements Serializable {
+public class Student {
     @Id
     @Column(name = "user_no",insertable = false, updatable = false)
     private Long user_no;
 
-    @PrimaryKeyJoinColumn(name = "user_no", referencedColumnName = "user_no")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne
+    @PrimaryKeyJoinColumn(name="user_no", referencedColumnName="user_no")
     private User user;
 
     @Column(name = "student_email", length = 100, nullable = false)

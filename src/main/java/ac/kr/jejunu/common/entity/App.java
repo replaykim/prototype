@@ -16,14 +16,14 @@ public class App {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long app_no; // 식별자
 
-    @Column(name = "description", length = 30, nullable = false)
-    String name; // 앱의 이름
+    @Column(name = "name", length = 30, nullable = false)
+    private String name; // 앱의 이름
 
     @ManyToOne
     @JoinColumn(name = "uploader_no", referencedColumnName = "user_no")
-    private User user;
+    private Student student;
 
-    @Column(name = "description", length = 1000, nullable = true)
+    @Column(name = "description", length = 1000)
     private String description; // 앱 설명
     @Column(name = "version", length = 20, nullable = false)
     private String version; // 앱 버전

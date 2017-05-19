@@ -1,4 +1,4 @@
-package ac.kr.jejunu.common.model;
+package ac.kr.jejunu.common.entity;
 
 import lombok.Data;
 
@@ -24,7 +24,10 @@ public class Comment {
     @JoinColumn(name = "writer_no", referencedColumnName = "user_no")
     private User user; // 댓글 작성자에 대한 참조
 
+    @Column(name = "title",length = 100,nullable = false)
     private String title;// 제목
+    @Column(name = "content",length = 500,nullable = false)
     private String content; // 내용
-    private Integer star;// 별점 평균
+    @Column(name = "recommend_count",length = 11,nullable = false)
+    private Integer recommend_count;// 추천수
 }

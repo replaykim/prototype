@@ -12,22 +12,24 @@ import javax.persistence.*;
 @Data
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long comment_no;// 식별자
+    @GeneratedValue
+    private Long comment_no;
 
     @ManyToOne
-    @JoinColumn(name = "app_no", referencedColumnName = "app_no", nullable = false)
-    private App app; // 앱에 대한 외래키 참조 설정
+    @JoinColumn(name = "app_no", nullable = false)
+    private App app;
 
 
     @ManyToOne
     @JoinColumn(name = "writer_no", referencedColumnName = "user_no")
-    private User user; // 댓글 작성자에 대한 참조
+    private User user;
 
     @Column(name = "title",length = 100,nullable = false)
-    private String title;// 제목
+    private String title;
+
     @Column(name = "content",length = 500,nullable = false)
-    private String content; // 내용
+    private String content;
+
     @Column(name = "recommend_count",length = 11,nullable = false)
-    private Integer recommend_count;// 추천수
+    private Integer recommend_count;
 }

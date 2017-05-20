@@ -1,6 +1,5 @@
 package ac.kr.jejunu.security.model;
 
-import ac.kr.jejunu.common.entity.UserType;
 import lombok.Getter;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
@@ -15,7 +14,7 @@ public class LoginUserDetails extends User {
     private long no;
 
     public LoginUserDetails(ac.kr.jejunu.common.entity.User user) {
-        super(user.getEmail(), user.getPassword(), AuthorityUtils.createAuthorityList(user.getUsertype().name()));
+        super(user.getEmail(), user.getPassword(), AuthorityUtils.createAuthorityList(user.getUserType().name()));
         no = user.getUser_no();
     }
 }

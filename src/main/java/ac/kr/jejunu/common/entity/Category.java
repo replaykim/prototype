@@ -12,8 +12,9 @@ import javax.persistence.*;
 @Data
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long category_no; //식별자
-    @Column(name = "category_name",length = 255,nullable = true)
-    private String category_name; //카테고리 이름
+    @GeneratedValue
+    private Long category_no;
+
+    @Column(name = "category_name")
+    private String category_name;
 }

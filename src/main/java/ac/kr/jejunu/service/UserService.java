@@ -1,6 +1,6 @@
 package ac.kr.jejunu.service;
 
-import ac.kr.jejunu.dao.UserDao;
+import ac.kr.jejunu.repository.UserRepository;
 import ac.kr.jejunu.common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     public User getUser(String email) {
-        return userDao.findUserByEmail(email);
+        return userRepository.findUserByEmail(email);
     }
 }

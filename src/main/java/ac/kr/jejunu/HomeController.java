@@ -5,7 +5,9 @@ import ac.kr.jejunu.service.AppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -25,9 +27,17 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping("/")
-    public String home() {
-        return "redirect:/index";
+    @RequestMapping("/registapp")
+    public String registApp(ModelMap modelMap){
+        App app = new App();
+        modelMap.addAttribute("app", app);
+        return "registapp";
     }
 
+    @RequestMapping(value = "/save",  method= RequestMethod.POST)
+    public String save(@ModelAttribute(value="app") App app){
+        appService.addApp(app);
+
+        return "redirect:aaa";
+    }
 }

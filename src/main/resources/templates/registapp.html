@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/save}" th:object="${app}" method="post">
+    앱이름<input type="text" th:field="*{name}"/> <br/>
+    버전<input type="text" th:field="*{version}"/> <br/>
+    용량<input type="text" th:field="*{volume}"/> <br/>
+    카테고리 <select th:field="*{category.category_no}">
+    <option value = "1">게임</option>
+    <option value = "2">라이프스타일</option>
+    <option value = "3">비즈니스</option>
+    <option value = "4">교육</option>
+    <option value = "5">미디어</option>
+    <option value = "8">여행</option>
+    <option value = "9">기타</option>
+</select> <br/>
+    펀딩 목표<input type="text" th:field="*{fund_goal}"/> <br/>
+    <button type="submit">제출</button>
+</form>
+</body>
+</html>

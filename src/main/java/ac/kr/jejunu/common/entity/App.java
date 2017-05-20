@@ -55,8 +55,10 @@ public class App {
     private Integer fund_amount;
 
     @Column(name = "register_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date register_date;
 
     @Column(name = "update_date")
     private Date update_date;
+
 }

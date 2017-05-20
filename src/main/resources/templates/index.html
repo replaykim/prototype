@@ -10,15 +10,20 @@
 </head>
 <body>
 <div>
-    <h1>1</h1>
-    <div class="ContentContainer center_align">
-        <div data-th-each="app : ${applist}" class="content">
-            <div data-th-text="${app.name}"></div>
-            <div data-th-text="${app.student.student_email}"></div>
-            <div data-th-text="${app.category.category_name}"></div>
-        </div>
-    </div>
+    <a href="/mypage">마이페이지</a><br/>
+    <a href="/login">로그인</a><br/>
+    <a href="/register">회원가입</a><br/>
 </div>
+<!--<div>-->
+    <!--<h1>1</h1>-->
+    <!--<div class="ContentContainer center_align">-->
+        <!--<div data-th-each="app : ${applist}" class="content">-->
+            <!--<div data-th-text="${app.name}"></div>-->
+            <!--<div data-th-text="${app.student.email}"></div>-->
+            <!--<div data-th-text="${app.category.category_name}"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 <script src="/javascripts/a.js"></script>
 </body>
 </html>

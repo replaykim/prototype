@@ -21,7 +21,7 @@ public class App {
 
     @ManyToOne
     @JoinColumn(name = "uploader_no", referencedColumnName = "user_no")
-    private Student student;
+    private StudentInfo studentInfo;
 
     @Column(name = "description", length = 1000)
     private String description; // 앱 설명

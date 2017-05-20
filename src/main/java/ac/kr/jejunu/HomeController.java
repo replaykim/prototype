@@ -18,7 +18,7 @@ public class HomeController {
     @Autowired
     private AppService appService;
 
-    @RequestMapping("/")
+    @RequestMapping("/aaa")
     public String hello(ModelMap modelMap) {
         System.out.println("asdfasdf");
         List<App> apps = appService.list();

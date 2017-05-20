@@ -21,4 +21,13 @@ public class AppService {
     public List<App> list(){
         return appRepository.findAll();
     }
+
+    public App getApp(Long appNo) {
+        return appRepository.findOne(appNo);
+    }
+
+    public App addApp(App app) {
+        App app1 = appRepository.save(app);
+        return app1;
+    }
 }

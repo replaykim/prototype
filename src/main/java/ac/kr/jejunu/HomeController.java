@@ -18,11 +18,16 @@ public class HomeController {
     @Autowired
     private AppService appService;
 
-    @RequestMapping("/aaa")
-    public String hello(ModelMap modelMap) {
-        System.out.println("asdfasdf");
+    @RequestMapping("/index")
+    public String index(ModelMap modelMap) {
         List<App> apps = appService.list();
         modelMap.addAttribute("applist", apps);
         return "index";
     }
+
+    @RequestMapping("/")
+    public String home() {
+        return "redirect:/index";
+    }
+
 }

@@ -9,7 +9,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * Created by Boobby on 17-5-15.
@@ -25,14 +27,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
             .formLogin()
-//                .loginPage("/login")
-//                .defaultSuccessUrl("/", true)
-                .loginProcessingUrl("/login")
-//                .failureUrl("/login?error=bad_credentials")
+                .loginPage("/login")
+                .defaultSuccessUrl("/", true)
+                .loginProcessingUrl("/loginProcessing")
+                .failureUrl("/login?error")
                 .and()
             .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/login")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/")
                 .and()
             .authorizeRequests()
                 .antMatchers(
@@ -42,7 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/signup/**",
                         "/",
                         "/index",
-                        "/user/register/**"
+                        "/register",
+                        "/registerProcessing"
                 ).permitAll()
                 .anyRequest().authenticated();
     }
@@ -56,35 +59,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         @Bean
         PasswordEncoder passwordEncoder()
         {
-            // 스프링에서 제공하는 기본 암호 인코더
-            // return new BCryptPasswordEncoder();
-            // 커스텀 인코더를 사용하고있다.
-            return new MyPasswordEncoder();
+            return new BCryptPasswordEncoder();
         }
 
         @Override
         public void init(AuthenticationManagerBuilder auth) throws Exception
         {
             auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-        }
-    }
-
-    // 암호 인코더 커스텀 설정
-    public static class MyPasswordEncoder implements PasswordEncoder
-    {
-        @Override
-        public String encode(CharSequence rawPassword)
-        {
-            // 여기서는 이렇게 처리하였지만 예를들어 sha-2 / sha-3 같은 해시를 접목시킬 수 있다.
-            // 여기서는 간단히 EN-을 붙여 확인하는 용도!
-            return "EN-" + rawPassword.toString();
-        }
-
-        @Override
-        public boolean matches(CharSequence rawPassword, String encodedPassword)
-        {
-            // rawPassword 현재 들어온 값 | encodedPassword 매칭되는 계정에 있는 값
-            return encodedPassword.equals(encode(rawPassword));
         }
     }
 }

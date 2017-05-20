@@ -1,6 +1,6 @@
 package ac.kr.jejunu.security.service;
 
-import ac.kr.jejunu.dao.UserDao;
+import ac.kr.jejunu.repository.UserRepository;
 import ac.kr.jejunu.common.entity.User;
 import ac.kr.jejunu.security.model.LoginUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +15,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginUserDetailsService implements UserDetailsService {
     @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
-        User user = userDao.findUserByEmail(userEmail);
+        User user = userRepository.findUserByEmail(userEmail);
 
         if (user == null) {
             throw new UsernameNotFoundException("User name not found. Login failed.");

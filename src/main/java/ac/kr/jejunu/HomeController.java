@@ -20,7 +20,7 @@ public class HomeController {
 
     @RequestMapping("/aaa")
     public String hello(ModelMap modelMap) {
-        System.out.println("hello123");
+        System.out.println("asdfasdf");
         List<App> apps = appService.list();
         modelMap.addAttribute("applist", apps);
         return "index";

@@ -10,12 +10,12 @@ import javax.persistence.*;
 public class EntrepreneurInfo {
     @Id
     @Column(name = "user_no",insertable = false, updatable = false)
-    private Long user_no;
+    private Long userNo;
 
     @OneToOne
     @PrimaryKeyJoinColumn(name="user_no")
     private User user;
 
     @Column(name = "company_name", length = 50, nullable = false)
-    private String company_name;
+    private String companyName;
 }

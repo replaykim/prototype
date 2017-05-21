@@ -14,14 +14,15 @@ import java.util.Date;
 public class App {
     @Id
     @GeneratedValue
-    private Long app_no;
+    @Column(name = "app_no")
+    private Long no;
 
     @Column(name = "name", length = 30, nullable = false)
     private String name;
 
     @ManyToOne
     @JoinColumn(name = "uploader_no", referencedColumnName = "user_no")
-    private StudentInfo studentInfo;
+    private StudentInfo uploader;
 
     @Column(name = "description", length = 1000)
     private String description;
@@ -29,7 +30,7 @@ public class App {
     @Column(name = "version", length = 20, nullable = false)
     private String version;
 
-    @Column(name = "volume", length = 11, nullable = false)
+    @Column(name = "volume", nullable = false)
     private Integer volume;
 
     @ManyToOne
@@ -39,26 +40,25 @@ public class App {
     @Column(name = "storage", length = 256, nullable = false)
     private String storage;
 
-    @Column(name = "view_count", length = 11)
-    private Integer view_count;
+    @Column(name = "view_count")
+    private Integer viewCount;
 
-    @Column(name = "download_count", length = 11)
-    private Integer download_count;
+    @Column(name = "download_count")
+    private Integer downloadCount;
 
-    @Column(name = "stared", length = 11)
+    @Column(name = "stared")
     private Integer stared;
 
-    @Column(name = "fund_goal", length = 11, nullable = false)
-    private Integer fund_goal;
+    @Column(name = "fund_goal", nullable = false)
+    private Integer fundGoalAmount;
 
-    @Column(name = "fund_amount", length = 11)
-    private Integer fund_amount;
+    @Column(name = "fund_amount")
+    private Integer fundedAmount;
 
     @Column(name = "register_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date register_date;
+    private Date registerDate;
 
     @Column(name = "update_date")
-    private Date update_date;
-
+    private Date updateDate;
 }

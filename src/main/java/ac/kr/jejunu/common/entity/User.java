@@ -14,7 +14,8 @@ public class User {
 
     @Id
     @GeneratedValue
-    private Long user_no;
+    @Column(name = "user_no")
+    private Long no;
 
     @Column(name = "name", length = 50, nullable = false)
     private String name;

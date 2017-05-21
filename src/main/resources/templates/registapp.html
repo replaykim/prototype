@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.typeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
@@ -9,7 +9,7 @@
     앱이름<input type="text" th:field="*{name}"/> <br/>
     버전<input type="text" th:field="*{version}"/> <br/>
     용량<input type="text" th:field="*{volume}"/> <br/>
-    카테고리 <select th:field="*{category.category_no}">
+    카테고리 <select th:field="*{category.no}">
     <option value = "1">게임</option>
     <option value = "2">라이프스타일</option>
     <option value = "3">비즈니스</option>

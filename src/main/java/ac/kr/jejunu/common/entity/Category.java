@@ -13,8 +13,9 @@ import javax.persistence.*;
 public class Category {
     @Id
     @GeneratedValue
-    private Long category_no;
+    @Column(name = "category_no")
+    private Long no;
 
-    @Column(name = "category_name")
-    private String category_name;
+    @Column(name = "category_name", nullable = false)
+    private String name;
 }

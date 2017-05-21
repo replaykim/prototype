@@ -1,4 +1,4 @@
-package ac.kr.jejunu;
+package ac.kr.jejunu.service;
 
 import ac.kr.jejunu.common.entity.App;
 import ac.kr.jejunu.common.entity.Category;
@@ -7,7 +7,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,7 +23,9 @@ import static org.hamcrest.core.Is.is;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AppTest {
+@TestPropertySource("classpath:/application-local.properties")
+@Transactional
+public class AppServiceTest {
 
     @Autowired
     AppService appService;
@@ -31,23 +35,21 @@ public class AppTest {
         Long firstAppNo = 1l;
         Long secondAppNo = 2l;
 
+        List<App> apps = appService.list();
 
-        List<App> apps;
-        apps = appService.list();
-
-        assertThat(firstAppNo, is(apps.get(0).getApp_no()));
-        assertThat(secondAppNo, is(apps.get(1).getApp_no()));
+        assertThat(apps.get(0).getNo(), is(firstAppNo));
+        assertThat(apps.get(1).getNo(), is(secondAppNo));
     }
 
     @Test
     public void getApp() {
-        Long appNo = 1l;
+        Long appNo = 1L;
         String appName = "campustore";
 
         App app = appService.getApp(appNo);
 
-        assertThat(appNo, is(app.getApp_no()));
-        assertThat(appName, is(app.getName()));
+        assertThat(app.getNo(), is(appNo));
+        assertThat(app.getName(), is(appName));
     }
 
     @Test
@@ -55,22 +57,24 @@ public class AppTest {
         String appName = "앱이름";
         String version = "1.1.1";
         Integer volume = 500;
-        Category category = new Category();
-        category.setCategory_no(3l);
         Integer fundGoal = 3000000;
+        String categoryName = "비즈니스";
+
+        Category category = new Category();
+        category.setNo(3L);
+        category.setName(categoryName);
 
         App app = new App();
         app.setName(appName);
         app.setVersion(version);
         app.setVolume(volume);
         app.setCategory(category);
-        app.setFund_goal(fundGoal);
+        app.setFundGoalAmount(fundGoal);
 
         appService.addApp(app);
-        App resultApp = appService.getApp(app.getApp_no());
+        App resultApp = appService.getApp(app.getNo());
 
-        assertThat(version, is(resultApp.getVersion()));
-        assertThat("비즈니스", is(resultApp.getCategory().getCategory_name()));
+        assertThat(resultApp.getVersion(), is(version));
+        assertThat(resultApp.getCategory().getName(), is(categoryName));
     }
-
 }

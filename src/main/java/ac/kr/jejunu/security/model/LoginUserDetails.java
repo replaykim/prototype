@@ -15,6 +15,6 @@ public class LoginUserDetails extends User {
 
     public LoginUserDetails(ac.kr.jejunu.common.entity.User user) {
         super(user.getEmail(), user.getPassword(), AuthorityUtils.createAuthorityList(user.getUserType().name()));
-        no = user.getUser_no();
+        no = user.getNo();
     }
 }

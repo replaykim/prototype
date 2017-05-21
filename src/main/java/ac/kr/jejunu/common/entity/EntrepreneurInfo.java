@@ -13,7 +13,7 @@ public class EntrepreneurInfo {
     private Long userNo;
 
     @OneToOne
-    @PrimaryKeyJoinColumn(name="userNo")
+    @PrimaryKeyJoinColumn(name="user_no")
     private User user;
 
     @Column(name = "company_name", length = 50, nullable = false)

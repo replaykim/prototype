@@ -1,7 +1,7 @@
 package ac.kr.jejunu;
 
-import ac.kr.jejunu.service.AppService;
 import ac.kr.jejunu.common.entity.App;
+import ac.kr.jejunu.service.AppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,5 +17,4 @@ import java.util.List;
 
 @Controller
 public class HomeController {
-
 }

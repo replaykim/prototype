@@ -17,28 +17,5 @@ import java.util.List;
 
 @Controller
 public class HomeController {
-    @Autowired
-    private AppService appService;
 
-    @RequestMapping("/aaa")
-    public String hello(ModelMap modelMap) {
-        System.out.println("asdfasdf");
-        List<App> apps = appService.list();
-        modelMap.addAttribute("applist", apps);
-        return "index";
-    }
-
-    @RequestMapping("/registapp")
-    public String registApp(ModelMap modelMap){
-        App app = new App();
-        modelMap.addAttribute("app", app);
-        return "registapp";
-    }
-
-    @RequestMapping(value = "/save",  method= RequestMethod.POST)
-    public String save(@ModelAttribute(value="app") App app){
-        appService.addApp(app);
-
-        return "redirect:aaa";
-    }
 }

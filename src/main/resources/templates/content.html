@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>CampusTore</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/list.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/contents.css"/>
+</head>
+<body>
+<div class="whole_wrap center_align">
+    <div class="app_head_wrapper">
+        <div class="img_box">
+            <img width="auto" height="auto" class="app_img" src="./images/logo179x200.png"/>
+        </div>
+        <div class="app_title_wrapper">
+            <h2 class="app_title" data-th-text="${app.name}"></h2>
+            <div class="app_maker">썸띵라잌댓</div>
+            <div class="app_discription">그냥임시로 써놓다아아아앙아ㅏ앙이이아아머랆;나얾ㄴ;ㅏㅓㄹㅇㅁㄴ;ㅏㅣㅓㄹ;ㅁ넝라;ㅁ럼러ㅣ마ㅓ리마너림;ㅏ널;ㅣㅁ너라ㅣ먼</div>
+            <input class="msg_btn " type="button" value="MESSAGE"/>
+            <input class="inst_btn " type="button" value="설치"/>
+        </div>
+        <div class="cnt_wrapper" th:switch="${app.view_count}">
+            <span>Like : </span>
+            <span class="app_view_cont" data-th-text="${app.stared}"></span>
+            <div th:case="1" class="rating_image" style="background-position-y: 1.1em"></div>
+            <div th:case="2" class="rating_image" style="background-position-y: 2.2em"></div>
+            <div th:case="3" class="rating_image" style="background-position-y: 3.3em"></div>
+            <div th:case="4" class="rating_image" style="background-position-y: 4.4em"></div>
+            <div th:case="5" class="rating_image" style="background-position-y: 5.8em"></div>
+        </div>
+        <div class="funding_grph_wrapper">
+            <!--<div class="funding_graph" th:style=" 'height:'+ @{(${app.RECM_CNT})}/5  + '%'">-->
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

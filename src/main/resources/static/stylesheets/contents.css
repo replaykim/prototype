@@ -1,0 +1,85 @@
+.app_head_wrapper{
+    display: -webkit-flex;
+    display:         flex;
+    width: 40em;
+
+    min-width: 30em;
+    max-height: 300px;
+    position: relative;
+
+}
+
+.img_box {
+    flex: 1.5;
+    display: inline-block;
+    background-repeat: no-repeat;
+
+}
+
+.app_img {
+    max-height: 250px;
+    min-height: 200px;
+}
+
+.app_title_wrapper {
+    flex : 2;
+    max-width: 250px;
+
+    position: relative;
+
+}
+.app_title{
+
+
+}
+.app_maker{
+    margin: 20px;
+}
+.app_discription{
+
+}
+.cnt_wrapper {
+    position: absolute;
+    margin-left: 20px;
+    left: 10px;
+    bottom: -5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+}
+
+.app_view_cont {
+}
+
+.rating_image {
+
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 2.5em;
+
+    width: 5.5em;
+    height: 1.1em;
+
+    background-image:url(../images/rating-stars.png);
+    background-size: 5.5em;
+}
+
+.funding_grph_wrapper {
+    flex: 1;
+
+    display: flex;
+    min-width: 30px;
+
+    flex-direction: row-reverse;
+    align-items:flex-end;
+
+    background-color: red;
+}
+
+.funding_graph {
+
+    width: 3em;
+    height: 100%;
+    background-color: aqua;
+}

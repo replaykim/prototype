@@ -1,12 +1,13 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
-    <link rel="stylesheet" href="/stylesheets/a.css" />
+    <link rel="stylesheet" href="/stylesheets/a.css"/>
+    <link rel="stylesheet" href="/stylesheets/list.css"/>
 </head>
 <body>
 <div>
@@ -17,9 +18,10 @@
     <h1>1</h1>
     <div class="ContentContainer center_align">
         <div data-th-each="app : ${applist}" class="content">
-            <div data-th-text="${app.name}"></div>
-            <!--<div data-th-text="${app.student.student_email}"></div>-->
-            <div data-th-text="${app.category.category_name}"></div>
+            <a th:href="@{/contentdetail(app_no=${app.app_no})}">
+                <div data-th-text="${app.name}"></div>
+                <div data-th-text="${app.category.category_name}"></div>
+            </a>
         </div>
     </div>
 </div>

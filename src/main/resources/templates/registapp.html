@@ -19,7 +19,17 @@
     <option value = "9">기타</option>
 </select> <br/>
     펀딩 목표<input type="text" th:field="*{fund_goal}"/> <br/>
+    파일 <input type="file" id="fileInput" accept=".apk"/> <br/>
     <button type="submit">제출</button>
 </form>
+
+
+<script type="text/javascript">
+    document.getElementById('fileInput').onchange = function(){
+        var filesize = document.getElementById('fileInput').files[0].size;
+        filesize = filesize/1024/1024;
+        console.log(filesize+"MB");
+    }
+</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package ac.kr.jejunu.security.model;
+package ac.kr.jejunu.common.domain;
 
 import lombok.Getter;
 import org.springframework.security.core.authority.AuthorityUtils;

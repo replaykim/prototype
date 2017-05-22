@@ -1,4 +1,4 @@
-package ac.kr.jejunu.board.controller;
+package ac.kr.jejunu.web;
 
 import ac.kr.jejunu.common.entity.App;
 import ac.kr.jejunu.service.AppService;

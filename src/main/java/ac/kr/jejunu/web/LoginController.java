@@ -1,7 +1,7 @@
-package ac.kr.jejunu.security.controller;
+package ac.kr.jejunu.web;
 
 import ac.kr.jejunu.common.entity.User;
-import ac.kr.jejunu.security.model.LoginUserDetails;
+import ac.kr.jejunu.common.domain.LoginUserDetails;
 import ac.kr.jejunu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

@@ -1,12 +1,15 @@
-package ac.kr.jejunu.security.config;
+package ac.kr.jejunu.config;
 
+import ac.kr.jejunu.service.LoginUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +20,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * Created by Boobby on 17-5-15.
  */
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -51,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Configuration
+    @ComponentScan(basePackageClasses = LoginUserDetailsService.class)
     public static class AuthenticationConfiguration extends GlobalAuthenticationConfigurerAdapter
     {
         @Autowired
